@@ -9,6 +9,7 @@ import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -28,7 +29,7 @@ public class SecondJob {
 
     @Bean
     public Job job(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager) {
-        return new JobBuilder("Second Job", jobRepository)
+        return new JobBuilder("SecondJob", jobRepository)
                 .incrementer(new RunIdIncrementer())
                 .start(firstChunkStep(jobRepository, platformTransactionManager))
                 .build();

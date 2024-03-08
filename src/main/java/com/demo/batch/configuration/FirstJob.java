@@ -8,6 +8,7 @@
 //import org.springframework.batch.core.launch.support.RunIdIncrementer;
 //import org.springframework.batch.core.repository.JobRepository;
 //import org.springframework.batch.core.step.builder.StepBuilder;
+//import org.springframework.beans.factory.annotation.Qualifier;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.transaction.PlatformTransactionManager;
@@ -23,6 +24,7 @@
 //        this.secondTasklet = secondTasklet;
 //    }
 //
+//    @Qualifier("firstJob")
 //    @Bean
 //    public Job job(JobRepository jobRepository, Step firstStep, Step secondStep){
 //        return new JobBuilder("First Job", jobRepository)
